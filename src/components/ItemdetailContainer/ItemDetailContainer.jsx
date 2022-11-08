@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { getSingleItemFromAPI } from "../../mockService/mockService";
+import { useParams } from "react-router-dom";
 
 function ItemDetailContainer() {
   const [product, setProduct] = useState([]);
+  let params = useParams();
+  let id = params.id;
 
   useEffect(() => {
-    getSingleItemFromAPI().then((itemsDB) => {
-      console.log(itemsDB);
+    getSingleItemFromAPI(id).then((itemsDB) => {
       setProduct(itemsDB);
-    });
-  }, []);
+    })
+    .catch((error) => alert(error));
+  }, [id]);
 
   return (
     <div>

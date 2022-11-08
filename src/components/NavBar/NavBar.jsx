@@ -1,16 +1,18 @@
-import Button from "../Button/Button";
 import CartWidget from "../CartWidget/CartWidget";
 import "./navbar.css";
+import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
     <nav className="nav-menu">
-      <h3>Mi tienda</h3>
-      <a href="/">Categoría A</a>
-      <a href="/">Categoría B</a>
-      <a href="/">Categoría C</a>
+      <Link to="/">
+        <h3>Hard Training Store</h3>
+      </Link>
+      <Link to="/category/smartphones">smartphones</Link>
+      <Link to="/category/laptops">laptops</Link>
+      <Link to="/category/fragrances">fragrances</Link>
       <CartWidget />
-      {/* Importar y renderizar  acá el CartWidget */}
+      
     </nav>
   );
 }

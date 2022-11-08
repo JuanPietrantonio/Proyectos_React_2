@@ -1,5 +1,6 @@
 //1. Importamos el hook de Ciclo de Vida
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Button from "../Button/Button";
 import "./item.css";
 
@@ -14,6 +15,7 @@ function Item({product}) {
   let classButtonFavorite =
     isFavorite === true ? "card-favicon favorite" : "card-favicon";
 
+  let urlDetail = `/detalle/${product.id}`;
 
   return (
     <div className="card">
@@ -28,7 +30,9 @@ function Item({product}) {
         <p>{product.description}</p>
         <h4 className="priceTag">$ {product.price}</h4>
       </div>
-      <Button>Ver más!</Button>
+      <Link to={ urlDetail }   >
+        <Button>Ver más!</Button>
+      </Link>
     </div>
   );
 }
